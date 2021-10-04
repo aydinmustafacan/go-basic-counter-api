@@ -20,3 +20,8 @@ type FizzBuzz struct {
 
 }
 
+type Counter struct {
+	Counter int `json:"counter,omitempty"`
+
+}
+

@@ -151,6 +151,18 @@ func FizzBuzz(w http.ResponseWriter, r *http.Request) {
 }
 
 
+
+func Counter(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Context-Type", "application/x-www-form-urlencoded")
+	w.Header().Set("Access-Control-Allow-Origin", "*")
+	w.Header().Set("Access-Control-Allow-Methods", "POST")
+	w.Header().Set("Access-Control-Allow-Headers", "Content-Type")
+	var counter models.Counter
+	_ = json.NewDecoder(r.Body).Decode(&counter)
+	fmt.Println("counter: ")
+	fmt.Println(counter.Counter)
+}
+
 // CreateTask create task route
 func CreateTask(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Context-Type", "application/x-www-form-urlencoded")

@@ -14,7 +14,7 @@ func Router() *mux.Router {
 
 	router := mux.NewRouter()
 
-
+	router.HandleFunc("/api/counter", middleware.Counter).Methods("POST", "OPTIONS")
 	router.HandleFunc("/api/fizzbuzz/{count}", middleware.FizzBuzz).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task", middleware.GetAllTask).Methods("GET", "OPTIONS")
 	router.HandleFunc("/api/task", middleware.CreateTask).Methods("POST", "OPTIONS")
